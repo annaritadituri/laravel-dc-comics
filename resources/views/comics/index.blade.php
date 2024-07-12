@@ -10,7 +10,9 @@
     <h1>Libreria fumetti</h1>
    
     @foreach ($comics as $comic)
-        <p>{{ $comic['title'] }}</p>
+        <p>
+            <a href="{{ route('comics.show', $comic->id)}}">{{ $comic['title'] }}</a>
+        </p>
     @endforeach
 </body>
 </html>
