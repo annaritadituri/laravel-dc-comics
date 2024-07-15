@@ -8,6 +8,8 @@
 <body>
 
     <h1>Libreria fumetti</h1>
+
+    <a href="{{ route('comics.create') }}">Crea nuovo fumetto</a>
    
     @foreach ($comics as $comic)
         <p>
