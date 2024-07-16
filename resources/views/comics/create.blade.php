@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crea</title>
-    @vite('resources/js/app.js')
-</head>
-<body>
+@extends('layouts.app')
 
-    @include('shared.header')
-
+@section('main')
     <div class="container my-5">
 
         <h1 class="text-center my-5">NUOVO FUMETTO</h1>
@@ -56,8 +47,4 @@
         </form>
 
     </div>
-
-    @include('shared.footer')
-    
-</body>
-</html>
+@endsection
