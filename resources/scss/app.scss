@@ -1,6 +1,16 @@
 /*resources/scss/app.scss*/
 @import "~bootstrap/scss/bootstrap";
+@import './partials/typography';
+@import './partials/variables';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body {
-    background-color: white;
+    background-color: $bg_lightgrey;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.2rem;
+}
+
+.background {
+    background: rgb(175,135,135);
+    background: linear-gradient(90deg, black 0%, rgba(175,135,135,1) 10%, rgba(225, 223, 223, 0.9) 15%, rgba(225, 223, 223, 0.9) 85%, rgba(175,135,135,1) 90%, black 100%);
 }
