@@ -35,6 +35,20 @@ class ComicController extends Controller
 
         $data = $request->all();
 
+        //validation
+        $request->validate([
+            'title' => 'min:10|required|string',
+            'description' => 'string|nullable',
+            'thumb' => 'url|required',
+            'price' => 'decimal:0,2|min:0',
+            'series' => 'string|nullable',
+            'sale_date' => 'date_format: YYYY-MM-DD',
+            'type' => 'string|nullable',
+            'artists' => 'string|nullable',
+            'writers' => 'string|nullable'
+
+        ]);
+
         $comic = new Comic();
 
         $comic->title = $data['title'];
