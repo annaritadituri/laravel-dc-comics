@@ -29,10 +29,10 @@
 
                     <div class="col-3">
 
-                        <div class="content h-100 text-center">
-                            <img class="w-100 border border-black border-2 mb-3 shadow" src="{{ $comic['thumb']}}" alt="copertina-fumetto">
+                        <div class="content h-100 text-center position-relative">
+                            <img class="w-100 h-75 border border-black border-2 mb-3 shadow" src="{{ $comic['thumb']}}" alt="copertina-fumetto">
                             <a class="fs-5 link-danger" href="{{ route('comics.show', $comic->id)}}">{{ $comic['title'] }}</a>
-                            <div class="mt-2">
+                            <div class="mt-2 position-absolute bottom-0 start-50 translate-middle-x">
                                 <a href="{{ route('comics.edit', $comic->id) }}"><button class="btn btn-outline-secondary">Modifica</button></a>
                                 <form class="d-inline-block" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
                                     @method('DELETE')

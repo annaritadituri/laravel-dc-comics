@@ -1,8 +1,8 @@
 <footer>
-    <nav class="navbar bg-black" data-bs-theme="dark">
+    <nav class="navbar bg-black py-3" data-bs-theme="dark">
     <div class="container-fluid">
         <span class="navbar-text">
-        Navbar text with an inline element
+        DC COMICS - ANNARITA DI TURI
         </span>
     </div>
     </nav>

@@ -8,7 +8,11 @@
 </head>
 <body>
 
-    <div class="container">
+    @include('shared.header')
+
+    <div class="container my-5">
+
+        <h1 class="text-center my-5">NUOVO FUMETTO</h1>
 
         <form action="{{ route('comics.store') }}" method="POST">
             @csrf
@@ -52,6 +56,8 @@
         </form>
 
     </div>
+
+    @include('shared.footer')
     
 </body>
 </html>
