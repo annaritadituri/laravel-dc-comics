@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -31,10 +32,10 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ComicRequest $request)
     {
 
-        $data = $this->validation($request->all());
+        $data = $request->validated();
 
         $comic = new Comic();
 
@@ -79,10 +80,10 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(ComicRequest $request, Comic $comic)
     {
         
-        $data = $this->validation($request->all());
+        $data = $request->validated();
         $comic->update($data);
         return redirect()->route('comics.show', $comic->id);
     
@@ -99,29 +100,4 @@ class ComicController extends Controller
 
     }
 
-    public function validation($data)
-    {
-
-        $validation = Validator::make($data, [
-            'title' => 'min:10|required|string',
-            'description' => 'string|nullable',
-            'thumb' => 'url|required',
-            'price' => 'decimal:0,2|min:0',
-            'series' => 'string|nullable',
-            'sale_date' => 'date_format: YYYY-MM-DD',
-            'type' => 'string|nullable',
-            'artists' => 'string|nullable',
-            'writers' => 'string|nullable'
-        ], [
-            'title.required' => 'Il titolo è obbligatorio',
-            'title.min' => 'Il titolo deve avere una lunghezza minima di 10 caratteri',
-            'thumb.required' => "Il link dell'immagine è obbligatorio",
-            'thumb.url' => "L'immagine deve avere un URL corretto",
-            'price.decimal' => 'Il prezzo deve essere un valore numerico con massimo due cifre dopo la virgola',
-            'price.min' => 'Il prezzo deve essere un valore positivo',
-            'sale_date' => 'La data deve essere in formato YYYY-MM-DD',
-        ])->validate();
-        return $validation;
-
-    }
 }
